@@ -11,6 +11,9 @@ public class ApiApplication implements CommandLineRunner {
 	@Autowired
 	private ApiServiceWeather apiServiceWeather;
 
+	@Autowired
+	private FileService fileService;
+
 	public static void main(String[] args) {
 		SpringApplication.run(ApiApplication.class, args);
 	}
@@ -19,5 +22,11 @@ public class ApiApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception{
 		String weatherData = apiServiceWeather.getWeather();
 		System.out.println("Dados da API: "+weatherData);
+
+		/*
+		//Savar dados no arquivo
+		fileService.saveDataToFile(weatherData);
+		 */
 	}
 }
+// implements CommandLineRunner : roda a aplicação spring via cli também

@@ -12,10 +12,7 @@ public class ApiServiceWeather {
 
     public String getWeather(){
         try{
-            String url = "https://api-open-mateo.com/v1/forecast?" +
-                    "latitude=35&" +
-                    "longitude=139&" +
-                    "hourly=temperature";
+            String url = "https://api.open-meteo.com/v1/forecast?latitude=35&longitude=139&hourly=temperature";
 
             //Configuração do proxy
             SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
