@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -71,21 +75,28 @@ public class WeatherFormController {
 
                 FakeDB.saveDataToFakeDB(datas);
 
+                //Send to user
+                model.addAttribute("longitude", weatherForm.getLongitude());
+                model.addAttribute("latitude", weatherForm.getLatitude());
+
+                List<Map<String, String>> weatherData = new ArrayList<>();
+                for(int i=0; i<times.size();i++){
+                    Map<String, String> dataPoint = new HashMap<>();
+                    dataPoint.put("time", timesArray[i]);
+                    dataPoint.put("temperature", String.valueOf(temperaturesArray[i]));
+                    weatherData.add(dataPoint);
+                }
+                model.addAttribute("weatherData", weatherData);
+
             }catch (Exception error){
                 System.out.println("Error to convert datas: "+error.toString());
             }
-
-            //Send to user
-            model.addAttribute("times", times);
-            model.addAttribute("temperatures", temperatures);
-            model.addAttribute("longitude", weatherForm.getLongitude());
-            model.addAttribute("latitude", weatherForm.getLatitude());
-            model.addAttribute("weatherObject", new WeatherForm());
 
         } else {
             model.addAttribute("error", weatherResponse.getMessage());
         }
 
+        model.addAttribute("weatherObject", new WeatherForm());
         return "WeatherForm";
     }
 }
