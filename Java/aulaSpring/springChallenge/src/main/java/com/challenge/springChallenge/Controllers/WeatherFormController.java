@@ -14,7 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -68,9 +67,9 @@ public class WeatherFormController {
                         temperaturesArray
                 );
 
-                String json = gson.toJson(datas);
+                // String json = gson.toJson(datas);
 
-                FakeDB.saveDataToFakeDB(json);
+                FakeDB.saveDataToFakeDB(datas);
 
             }catch (Exception error){
                 System.out.println("Error to convert datas: "+error.toString());
