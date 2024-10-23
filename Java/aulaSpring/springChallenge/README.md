@@ -3,8 +3,8 @@
 ###
 ### 🎯 1 - Objetivo do projeto:
 
-O obejetivo deste desafio é a criação de uma aplicação web que retorne os dados climáticos quando o usuário inserir os 
-parâmetros de latitude e longitude. Além disso, foram solicitados algumas regras para o desenvolvimento, como:
+O objetivo deste desafio é a criação de uma aplicação web que retorne os dados climáticos quando o usuário inserir os 
+parâmetros de latitude e longitude. Além disso, foram solicitadas algumas regras para o desenvolvimento, como:
 
 - Construir o back-end da API com Java e Spring;
 - Utilizar Thymeleaf para a construção do front-end;
